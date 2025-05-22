@@ -1,0 +1,13 @@
+1-Make a project deployment.
+2-what is pull request and request & differrent bettween them?
+3-Make fork from your project and use it from anthor account 
+4-What is the command to delete the branch "new-email"
+5-What is the command to push the current repository to the remote origin?
+6-what is git Rebase and how to use it ?
+7-What is the command to get all the change history of the remote repository "origin"?
+8-What is the command to show the differences between the current branch and the branch "new-email"?
+9-what is tags and Make five tags and release two of them?
+
+
+Bouns :
+Make SSh to your repo.
