@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="progress-bar">
+            <div class="progress-step" data-step="1"></div>
+            <div class="progress-step" data-step="2"></div>
+            <div class="progress-step" data-step="3"></div>
+            <div class="progress-step" data-step="4"></div>
+            <div class="progress-step" data-step="5"></div>
+        </div>
+        
+        <h1>تصميم منتج خاص بك</h1>
+        
+        <form id="productForm">
+            <!-- الخطوة 1: نوع المنتج والزيوت -->
+            <div class="form-step active" data-step="1">
+                <div class="form-group">
+                    <label for="productType">1- نوع المنتج؟</label>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="productType" value="شامبو" required> شامبو
+                        </label>
+                        <label>
+                            <input type="radio" name="productType" value="بلسم"> بلسم
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>2- اختر 3 زيوت من القائمة:</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="oils" value="زيت جوز الهند"> زيت جوز الهند</label>
+                        <label><input type="checkbox" name="oils" value="زيت اللوز"> زيت اللوز</label>
+                        <label><input type="checkbox" name="oils" value="زيت الزيتون"> زيت الزيتون</label>
+                        <label><input type="checkbox" name="oils" value="زيت الأركان"> زيت الأركان</label>
+                        <label><input type="checkbox" name="oils" value="زيت الجوجوبا"> زيت الجوجوبا</label>
+                        <label><input type="checkbox" name="oils" value="زيت الخروع"> زيت الخروع</label>
+                        <label><input type="checkbox" name="oils" value="زيت الأفوكادو"> زيت الأفوكادو</label>
+                        <label><input type="checkbox" name="oils" value="زيت النعناع"> زيت النعناع</label>
+                        <label><input type="checkbox" name="oils" value="زيت شجرة الشاي"> زيت شجرة الشاي</label>
+                        <label><input type="checkbox" name="oils" value="زيت اللافندر"> زيت اللافندر</label>
+                    </div>
+                    <small class="error" id="oilsError">يجب اختيار 3 زيوت فقط</small>
+                </div>
+
+                <div class="btns-group">
+                    <button type="button" class="btn btn-next">التالي</button>
+                </div>
+            </div>
+
+            <!-- الخطوة 2: شكل وتصميم الزجاجة -->
+            <div class="form-step" data-step="2">
+                <div class="form-group">
+                    <label>3- اختر شكل الزجاجة:</label>
+                    <div class="image-options" id="bottleShapes">
+                        <label>
+                            <input type="radio" name="bottleShape" value="shape1" required>
+                            <img src="https://via.placeholder.com/100?text=شكل1" alt="شكل الزجاجة 1">
+                        </label>
+                        <label>
+                            <input type="radio" name="bottleShape" value="shape2">
+                            <img src="https://via.placeholder.com/100?text=شكل2" alt="شكل الزجاجة 2">
+                        </label>
+                        <label>
+                            <input type="radio" name="bottleShape" value="shape3">
+                            <img src="https://via.placeholder.com/100?text=شكل3" alt="شكل الزجاجة 3">
+                        </label>
+                        <label>
+                            <input type="radio" name="bottleShape" value="shape4">
+                            <img src="https://via.placeholder.com/100?text=شكل4" alt="شكل الزجاجة 4">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>4- اختر تصميم الزجاجة:</label>
+                    <div class="image-options" id="bottleDesigns">
+                        <label>
+                            <input type="radio" name="bottleDesign" value="design1" required>
+                            <img src="https://via.placeholder.com/100?text=تصميم1" alt="تصميم الزجاجة 1">
+                        </label>
+                        <label>
+                            <input type="radio" name="bottleDesign" value="design2">
+                            <img src="https://via.placeholder.com/100?text=تصميم2" alt="تصميم الزجاجة 2">
+                        </label>
+                        <label>
+                            <input type="radio" name="bottleDesign" value="design3">
+                            <img src="https://via.placeholder.com/100?text=تصميم3" alt="تصميم الزجاجة 3">
+                        </label>
+                        <label>
+                            <input type="radio" name="bottleDesign" value="design4">
+                            <img src="https://via.placeholder.com/100?text=تصميم4" alt="تصميم الزجاجة 4">
+                        </label>
+                    </div>
+                    <div class="upload-option">
+                        <label>أو ارفع تصميمك الخاص:</label>
+                        <input type="file" id="customDesign" accept="image/*">
+                    </div>
+                </div>
+
+                <div class="btns-group">
+                    <button type="button" class="btn btn-prev">السابق</button>
+                    <button type="button" class="btn btn-next">التالي</button>
+                </div>
+            </div>
+
+            <!-- الخطوة 3: معاينة التصميم -->
+            <div class="form-step" data-step="3">
+                <div class="form-group preview-group">
+                    <label>5- معاينة التصميم:</label>
+                    <div class="preview-container">
+                        <div id="productPreview"></div>
+                        <div class="preview-actions">
+                            <button type="button" id="approveBtn" class="btn">موافق</button>
+                            <button type="button" id="rejectBtn" class="btn btn-secondary">ارفض</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btns-group">
+                    <button type="button" class="btn btn-prev">السابق</button>
+                    <button type="button" class="btn btn-next">التالي</button>
+                </div>
+            </div>
+
+            <!-- الخطوة 4: اسم المنتج وعدد الزجاجات -->
+            <div class="form-step" data-step="4">
+                <div class="form-group">
+                    <label for="productName">6- اختر اسم للمنتج:</label>
+                    <select id="productName" name="productName" required>
+                        <option value="">-- اختر اسم --</option>
+                        <option value="نعومة">نعومة</option>
+                        <option value="لمعان">لمعان</option>
+                        <option value="حيوية">حيوية</option>
+                        <option value="انتعاش">انتعاش</option>
+                        <option value="تألق">تألق</option>
+                        <option value="نضارة">نضارة</option>
+                        <option value="جمال">جمال</option>
+                        <option value="رونق">رونق</option>
+                        <option value="بريق">بريق</option>
+                        <option value="صفاء">صفاء</option>
+                        <option value="نقاء">نقاء</option>
+                        <option value="عطر">عطر</option>
+                        <option value="سحر">سحر</option>
+                        <option value="جاذبية">جاذبية</option>
+                        <option value="فتنة">فتنة</option>
+                        <option value="سحر">سحر</option>
+                        <option value="بهاء">بهاء</option>
+                        <option value="روعة">روعة</option>
+                        <option value="جلال">جلال</option>
+                        <option value="بهجة">بهجة</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="quantity">7- عدد الزجاجات:</label>
+                    <input type="number" id="quantity" name="quantity" min="1" max="100" required>
+                </div>
+
+                <div class="btns-group">
+                    <button type="button" class="btn btn-prev">السابق</button>
+                    <button type="button" class="btn btn-next">التالي</button>
+                </div>
+            </div>
+
+            <!-- الخطوة 5: بيانات العميل -->
+            <div class="form-step" data-step="5">
+                <div class="form-group">
+                    <label>8- المعلومات الشخصية:</label>
+                    <input type="text" name="customerName" placeholder="الاسم بالكامل" required>
+                    <input type="email" name="customerEmail" placeholder="البريد الإلكتروني" required>
+                    <input type="tel" name="customerPhone" placeholder="رقم الهاتف" required>
+                    <input type="text" name="customerAddress" placeholder="العنوان" required>
+                    <input type="text" name="customerCity" placeholder="المدينة" required>
+                    <input type="text" name="customerCountry" placeholder="الدولة" required>
+                </div>
+
+                <div class="form-group">
+                    <label>معلومات إضافية:</label>
+                    <textarea name="customerNotes" placeholder="ملاحظات إضافية (اختياري)"></textarea>
+                    <label>
+                        <input type="checkbox" name="agreeTerms" required>
+                        أوافق على الشروط والأحكام
+                    </label>
+                </div>
+
+                <div class="btns-group">
+                    <button type="button" class="btn btn-prev">السابق</button>
+                    <button type="button" class="btn btn-next">تأكيد الطلب</button>
+                </div>
+            </div>
+
+            <!-- الخطوة 6: تأكيد الطلب -->
+            <div class="form-step" data-step="6">
+                <div class="confirmation">
+                    <h2>تأكيد الطلب</h2>
+                    <div id="orderSummary"></div>
+                    <div class="btns-group">
+                        <button type="button" class="btn btn-prev">السابق</button>
+                        <button type="submit" class="btn submit-btn">إرسال الطلب</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

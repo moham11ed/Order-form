@@ -1,0 +1,315 @@
+/* التنسيق العام */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+/* شريط التقدم */
+.progress-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.progress-bar::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #ddd;
+    z-index: 1;
+    transform: translateY(-50%);
+}
+
+.progress-step {
+    width: 30px;
+    height: 30px;
+    background-color: #ddd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
+}
+
+.progress-step.active {
+    background-color: #3498db;
+    color: white;
+}
+
+/* الخطوات */
+.form-step {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.form-step.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* تنسيق مجموعة النموذج */
+.form-group {
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    border-left: 4px solid #3498db;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* تنسيق مجموعة الراديو والاختيار */
+.radio-group, .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.radio-group label, .checkbox-group label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 8px 12px;
+    background-color: #ecf0f1;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.radio-group label:hover, .checkbox-group label:hover {
+    background-color: #d6eaf8;
+}
+
+/* تنسيق خيارات الصور */
+.image-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.image-options label {
+    position: relative;
+    cursor: pointer;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.image-options label:hover {
+    border-color: #3498db;
+}
+
+.image-options input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+}
+
+.image-options input[type="radio"]:checked + img {
+    border: 2px solid #3498db;
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+}
+
+.image-options img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    display: block;
+}
+
+/* تنسيق رفع الملف */
+.upload-option {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #ecf0f1;
+    border-radius: 5px;
+}
+
+.upload-option label {
+    margin-bottom: 5px;
+}
+
+/* تنسيق معاينة المنتج */
+.preview-group {
+    background-color: #e8f4fc;
+    border-left-color: #2980b9;
+}
+
+.preview-container {
+    text-align: center;
+    margin-top: 15px;
+}
+
+#productPreview {
+    width: 200px;
+    height: 300px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+}
+
+.preview-actions {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* تنسيق حقول الإدخال */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* تنسيق الأزرار */
+.btn {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}
+
+.btn-secondary {
+    background-color: #95a5a6;
+}
+
+.btn-secondary:hover {
+    background-color: #7f8c8d;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.btns-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btn-next, .btn-prev {
+    width: 48%;
+}
+
+.btn-prev {
+    background-color: #95a5a6;
+}
+
+.btn-prev:hover {
+    background-color: #7f8c8d;
+}
+
+/* رسائل الخطأ */
+.error {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+}
+
+/* صفحة التأكيد */
+.confirmation {
+    text-align: center;
+    padding: 20px;
+}
+
+#orderSummary {
+    text-align: right;
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+/* التنسيق للغة العربية */
+[dir="rtl"] {
+    text-align: right;
+}
+
+/* التنسيق للجوال */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .image-options {
+        justify-content: center;
+    }
+    
+    .radio-group, .checkbox-group {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .progress-step {
+        width: 25px;
+        height: 25px;
+        font-size: 14px;
+    }
+}
